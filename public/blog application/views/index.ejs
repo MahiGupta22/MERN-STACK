@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+<h2>All Posts</h2>
+<% if (posts.length === 0) { %>
+  <p>No posts yet. <a href="/posts/new">Create one</a>!</p>
+<% } else { %>
+  <ul class="post-list">
+    <% posts.forEach(post => { %>
+      <li>
+        <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+        <p><%= post.content.substring(0, 100) %>...</p>
+        <a href="/posts/<%= post.id %>">Read More</a>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<%- include("partials/footer") %>
